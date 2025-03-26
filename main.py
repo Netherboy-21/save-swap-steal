@@ -22,6 +22,3 @@ def game():
     direction = random.randint(0,1) * 180
 
     return render_template('game.html',p1_cards=p1_cards,p2_cards=p2_cards,direction=direction)
-
-if __name__ == "__main__":
-    app.run()
