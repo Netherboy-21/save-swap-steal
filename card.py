@@ -25,7 +25,6 @@ class Card:
             "Queen":10,
             "King":10,
             "Ace":11,
-            "AceLow":1
         }
 
         return cards[self.rank]
@@ -63,13 +62,23 @@ class Card:
     def __str__(self):
         """ Format card data """
 
-        if self.rank in ["Jack","Queen","King","Ace","AceLow"]:
+        if self.rank in ["Jack","Queen","King","Ace"]:
             abbr = self.rank[0]
         else:
             abbr = str(self.value)
-        return abbr + self.suit_symbol
+
+        card = abbr + self.suit_symbol
+
+        return card
+    
+    def image_path(self):
+        return f"cards_png/card_{self.rank.lower()}_{self.suit.lower()}.png"
     
     def __repr__(self):
         """ Representation of card """
 
-        return str(self)
+        if self.rank in ["Jack","Queen","King","Ace"]:
+            abbr = self.rank[0]
+        else:
+            abbr = str(self.value)
+        return abbr + self.suit_symbol
