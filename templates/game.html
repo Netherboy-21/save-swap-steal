@@ -4,10 +4,12 @@
 
 <div id="main">
 
-{% for hand in [p1_cards,p2_cards] %}
+<!-- Player 1 UI -->
+
+<div class="player-ui">
 
 <div class="cards-container">
-{% for index,card in hand %}
+{% for index,card in p1_cards %}
 <div class="card">
     <div class="front">
         <img class="card_img" src="{{ url_for('static', filename=card.image_path()) }}">
@@ -24,23 +26,64 @@
     <li class="action">Save</li>
     <li class="action">Save</li>
     <br>
+    <li class="action">Steal</li>
+    <li class="action">Steal</li>
+    <li class="action">Steal</li>
+    <br>
     <li class="action">Swap</li>
     <li class="action">Swap</li>
     <li class="action">Swap</li>
+</ul>
+
+</div>
+
+<!-- Player 2 UI (flipped) -->
+
+<div class="player-ui">
+
+<ul class="actions">
+    <li class="action">Save</li>
+    <li class="action">Save</li>
+    <li class="action">Save</li>
     <br>
     <li class="action">Steal</li>
     <li class="action">Steal</li>
     <li class="action">Steal</li>
+    <br>
+    <li class="action">Swap</li>
+    <li class="action">Swap</li>
+    <li class="action">Swap</li>
 </ul>
 
+<div class="cards-container">
+{% for index,card in p2_cards %}
+<div class="card">
+    <div class="front">
+        <img class="card_img" src="{{ url_for('static', filename=card.image_path()) }}">
+    </div>
+    <div class="back">
+        <h3 class="number">{{ index }}</h3>
+    </div>
+</div>
 {% endfor %}
+</div>
 
+</div>
 </div>
 
 <p class="title steal-text">Steal first:</p>
 <p id="arrow">←</p>
 
 <style>
+
+.cards-container-container {
+    display: inline-block;
+}
+
+.player-ui {
+    display: flex;
+    flex-direction: row;
+}
 
 .title {
     width: 100%;
@@ -64,7 +107,8 @@
 }
 
 .actions {
-    margin-left: 10px;
+    margin: 0 auto;
+    padding: 10px;
     display: inline-block;
     list-style: none;
 }
@@ -93,7 +137,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin-right: 0;
+    margin: 0;
 }
 
 .card {
