@@ -1,6 +1,6 @@
 <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
-<h1 class="title">Save, steal, swap</h1>
+<h1 class="title">Save. Steal. Swap.</h1>
 
 <div id="main">
 
@@ -23,9 +23,11 @@
     <li class="action">Save</li>
     <li class="action">Save</li>
     <li class="action">Save</li>
+    <br>
     <li class="action">Swap</li>
     <li class="action">Swap</li>
     <li class="action">Swap</li>
+    <br>
     <li class="action">Steal</li>
     <li class="action">Steal</li>
     <li class="action">Steal</li>
@@ -35,9 +37,15 @@
 
 </div>
 
+<p class="title steal-text">Steal first:</p>
 <p id="arrow">←</p>
 
 <style>
+
+.title {
+    width: 100%;
+    text-align: center;
+}
 
 :root {
     font-family: sans-serif;
@@ -55,10 +63,21 @@
     width: 100%;
 }
 
+.actions {
+    margin-left: 10px;
+    display: inline-block;
+    list-style: none;
+}
+
 #arrow {
     rotate: {{direction}}deg;
     text-align: center;
     font-size: 50px;
+    margin-top: 0;
+}
+
+.steal-text {
+    margin-bottom: 0;
 }
 
 #main {
@@ -74,6 +93,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    margin-right: 0;
 }
 
 .card {
