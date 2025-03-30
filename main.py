@@ -16,8 +16,8 @@ def game():
         p2_cards.append(deck.draw())
 
 
-    p1_cards = enumerate(p1_cards)
-    p2_cards = enumerate(p2_cards)
+    p1_cards = enumerate(p1_cards,1)
+    p2_cards = enumerate(p2_cards,1)
 
     direction = random.randint(0,1) * 180
 
